@@ -10,7 +10,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.room.Room
+import com.example.trabalhocrud.AppDatabase
+import com.example.trabalhocrud.Model.Pessoa
 import com.example.trabalhocrud.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,12 +29,17 @@ class MainActivity : AppCompatActivity() {
             "banco"
         ).build()
 
-        val pessoaDao = db.pessoaDao()
-            pessoaDao.insert(
+
+        var fulano: Pessoa = Pessoa(
+                1,
                 "Gabriel Ciolin",
                 "gabriel@hotmail.com",
                 "44999981716"
-            )
+        )
+
+
+        val pessoaDao = db.pessoaDao()
+        pessoaDao.insert(fulano)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -44,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+                .setAction("Action", null).show()
         }
     }
 
