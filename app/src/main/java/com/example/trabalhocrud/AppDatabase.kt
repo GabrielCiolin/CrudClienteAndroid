@@ -7,7 +7,7 @@ import com.example.trabalhocrud.Model.PessoaDao
 
 @Database(
     entities = [
-        Pessoa::class,
+        Pessoa::class
     ],
     version = 1
 )

@@ -1,16 +1,18 @@
 package com.example.trabalhocrud
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import androidx.room.Room
+import com.example.trabalhocrud.Model.Pessoa
 import com.example.trabalhocrud.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,16 +24,22 @@ class MainActivity : AppCompatActivity() {
 
         val db = Room.databaseBuilder(
             applicationContext,
-            AppDatabase::class.java,
-            "banco"
+            AppDatabase::class.java, "banco"
         ).build()
 
-        val pessoaDao = db.pessoaDao()
-            pessoaDao.insert(
+//        val pessoaDao = db.pessoaDao()
+//        val pessoas: List<Pessoa> = pessoaDao.getAll()
+
+        var fulano: Pessoa = Pessoa(
+                1,
                 "Gabriel Ciolin",
                 "gabriel@hotmail.com",
                 "44999981716"
-            )
+        )
+
+
+//        val pessoaDao = db.pessoaDao()
+//        pessoaDao.insert(fulano)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -44,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+                .setAction("Action", null).show()
         }
     }
 
