@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.room.Room
 import com.example.trabalhocrud.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            "banco"
+        ).build()
+
+        val pessoaDao = db.pessoaDao()
+            pessoaDao.insert(
+                "Gabriel Ciolin",
+                "gabriel@hotmail.com",
+                "44999981716"
+            )
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

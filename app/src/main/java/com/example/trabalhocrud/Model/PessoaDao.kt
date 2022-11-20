@@ -16,7 +16,7 @@ interface PessoaDao{
     fun get(id: Int): Pessoa
 
     @Insert
-    fun insert(vararg pessoa: Pessoa)
+    fun insert(vararg pessoa: String)
 
     @Delete
     fun delete(vararg pessoa: Pessoa)
