@@ -1,6 +1,7 @@
 package com.example.trabalhocrud
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -21,25 +22,24 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Thread {
+            val db = Room.databaseBuilder(
+                applicationContext,
+                AppDatabase::class.java, "banco"
+            ).build()
 
-        val db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "banco"
-        ).build()
-
-//        val pessoaDao = db.pessoaDao()
-//        val pessoas: List<Pessoa> = pessoaDao.getAll()
-
-        var fulano: Pessoa = Pessoa(
-                1,
+            var fulano: Pessoa = Pessoa(
+                2,
                 "Gabriel Ciolin",
                 "gabriel@hotmail.com",
                 "44999981716"
-        )
+            )
 
-
-//        val pessoaDao = db.pessoaDao()
-//        pessoaDao.insert(fulano)
+            val pessoaDao = db.pessoaDao()
+//            pessoaDao.insert(fulano)
+            val pessoas = pessoaDao.getAll()
+            Log.e("Pessoa ",pessoas.toString())
+        }.start()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
