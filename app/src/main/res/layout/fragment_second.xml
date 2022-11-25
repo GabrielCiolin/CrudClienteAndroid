@@ -6,22 +6,111 @@
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
 
-    <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="204dp"
+        tools:layout_editor_absoluteY="-46dp">
 
-    <Button
-        android:id="@+id/button_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/previous"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insira o número do cadastro:"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+        <EditText
+            android:id="@+id/id_pessoa"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Insira o nome do cadastro:"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Insira o email do cadastro:"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+        <EditText
+            android:id="@+id/email"
+
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Insira o telefone do cadastro:"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+        <EditText
+            android:id="@+id/celular"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Voltar"/>
+
+        <Button
+            android:id="@+id/btn_cadastrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="70dp"
+            android:text="Cadastrar"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+    <!--    </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+    <!--    <Button-->
+<!--        android:id="@+id/button_second"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Voltar"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+<!--        app:layout_constraintTop_toBottomOf="@id/textview_second" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
