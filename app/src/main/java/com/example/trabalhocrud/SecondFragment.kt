@@ -41,7 +41,7 @@ class SecondFragment : Fragment() {
             )
 
             val pessoaDao = db.pessoaDao()
-            pessoaDao.insert(fulano)
+//            pessoaDao.insert(fulano)
             val pessoas = pessoaDao.getAll()
             Log.e("Pessoa ",pessoas.toString())
         }.start()
