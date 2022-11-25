@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -22,24 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Thread {
-            val db = Room.databaseBuilder(
-                applicationContext,
-                AppDatabase::class.java, "banco"
-            ).build()
 
-            var fulano: Pessoa = Pessoa(
-                2,
-                "Gabriel Ciolin",
-                "gabriel@hotmail.com",
-                "44999981716"
-            )
-
-            val pessoaDao = db.pessoaDao()
-//            pessoaDao.insert(fulano)
-            val pessoas = pessoaDao.getAll()
-            Log.e("Pessoa ",pessoas.toString())
-        }.start()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -50,10 +35,12 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+//        binding.fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+//        }
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
