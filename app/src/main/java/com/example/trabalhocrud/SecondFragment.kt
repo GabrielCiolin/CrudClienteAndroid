@@ -1,6 +1,8 @@
 package com.example.trabalhocrud
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -39,18 +41,19 @@ class SecondFragment : Fragment() {
 
         binding.btnCadastrar.setOnClickListener {
             val id = binding.idPessoa.text.toString()
-            val novoId= Integer.parseInt(id)
+//            val novoId= Integer.parseInt(id)
             val nome = binding.nome.text.toString()
             val email = binding.email.text.toString()
             val celular = binding.celular.text.toString()
             var fulano: Pessoa = Pessoa(
-                novoId,
+                0,
                 nome,
                 email,
                 celular
             )
 
-            Thread {
+            Thread{
+
                 val applicationContext = activity?.applicationContext;
                 val db = Room.databaseBuilder(
                     applicationContext!!,
@@ -59,8 +62,9 @@ class SecondFragment : Fragment() {
 
                 val pessoaDao = db.pessoaDao()
                 pessoaDao.insert(fulano)
-                val pessoa = pessoaDao.get(novoId)
+                val pessoa = pessoaDao.getAll()
                 Log.e("Pessoa ",pessoa.toString())
+
             }.start()
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
 
